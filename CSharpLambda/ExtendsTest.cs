@@ -6,7 +6,13 @@ namespace CSharpLambda
 	{
 		public  static void exec ()
 		{
-			new Tank().printParts();
+			Console.WriteLine("-------------------------");
+			new Tank().printParts ();
+			Console.WriteLine("-------------------------");
+			new LT38 ().printParts ();
+			Console.WriteLine("-------------------------");
+			new Hetzer ().printParts ();
+			Console.WriteLine("-------------------------");
 		}
 
 		interface ITank
@@ -28,12 +34,31 @@ namespace CSharpLambda
 			void printParts();
 		}
 
+		class LT38 : Tank
+		{
+			public LT38 ()
+			{
+				this._guns = "Pz.Kpfw 38(t) Ausf. G";
+				this._turrets = "4,7 cm Kw.K. 38 (t) L/43";
+				this._suspensions = "Pz.Kpfw 38(t) Ausf. E";
+			}
+		}
+
+		class Hetzer : LT38
+		{
+			public Hetzer ()
+			{
+				this._guns = "10.5 cm Stu.H. 42 L/28";
+				this._turrets = "ヘッツァー改装キット";
+			}
+		}
+
 		class Tank : ITank
 		{
 
-			private String _guns;
-			private String _turrets;
-			private String _suspensions;
+			protected String _guns;
+			protected String _turrets;
+			protected String _suspensions;
 
 			public void printParts ()
 			{
