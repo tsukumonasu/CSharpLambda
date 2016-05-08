@@ -2,9 +2,9 @@
 
 namespace CSharpLambda
 {
-	class MainClass
+	public class LamdaTest
 	{
-		public static void Main (string[] args)
+		public static void lamdaTest ()
 		{
 			// ジェネリックなデリゲートの型 fibを定義
 			Func<int, int> fib = null;
@@ -16,25 +16,11 @@ namespace CSharpLambda
 			{
 				Console.WriteLine("引数{0}={1}", i, fib.Invoke(i));
 			}
-				
+
+			// ジェネリックなデリゲートの型 fizzbuzzを定義
 			Func<int, String> fizzbuzz = x =>
 			{
-				if (x % 15 == 0)
-				{
-					return "FizzBuzz";
-				}
-				else if (x % 3 == 0)
-				{
-					return "Fizz";
-				}
-				else if (x % 5 == 0)
-				{
-					return "Buzz";
-				}
-				else
-				{
-					return x.ToString();
-				}
+				return x%15==0?"FizzBuzz":x%5==0?"Buzz":x%3==0?"Fizz":x.ToString();
 			};
 
 			for (int i = 1; i <= 30; i++)
